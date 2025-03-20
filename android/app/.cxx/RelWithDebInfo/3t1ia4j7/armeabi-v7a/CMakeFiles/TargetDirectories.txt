@@ -1,0 +1,2 @@
+C:/Users/ggeta/Documents/aplicaciones mov/Flutter/AmericanStore04/android/app/.cxx/RelWithDebInfo/3t1ia4j7/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/ggeta/Documents/aplicaciones mov/Flutter/AmericanStore04/android/app/.cxx/RelWithDebInfo/3t1ia4j7/armeabi-v7a/CMakeFiles/rebuild_cache.dir
