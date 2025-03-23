@@ -23,7 +23,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           children: [
             Image.asset(
               "assets/images/signUp_dark.png",
-              height: MediaQuery.of(context).size.height * 0.35,
+              height: MediaQuery.of(context).size.height * 0.55,
               width: double.infinity,
               fit: BoxFit.cover,
             ),
@@ -33,12 +33,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Let’s get started!",
+                    "¡Empecemos!",
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   const SizedBox(height: defaultPadding / 2),
                   const Text(
-                    "Please enter your valid data in order to create an account.",
+                    "Por favor, ingresa tus datos válidos para crear una cuenta.",
                   ),
                   const SizedBox(height: defaultPadding),
                   SignUpForm(formKey: _formKey),
@@ -52,7 +52,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Expanded(
                         child: Text.rich(
                           TextSpan(
-                            text: "I agree with the",
+                            text: "Estoy de acuerdo con los",
                             children: [
                               TextSpan(
                                 recognizer: TapGestureRecognizer()
@@ -60,14 +60,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     Navigator.pushNamed(
                                         context, termsOfServicesScreenRoute);
                                   },
-                                text: " Terms of service ",
+                                text: " Términos de servicio ",
                                 style: const TextStyle(
                                   color: primaryColor,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                               const TextSpan(
-                                text: "& privacy policy.",
+                                text: "y la política de privacidad.",
                               ),
                             ],
                           ),
@@ -78,22 +78,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(height: defaultPadding * 2),
                   ElevatedButton(
                     onPressed: () {
-                      // There is 2 more screens while user complete their profile
-                      // afre sign up, it's available on the pro version get it now
+                      // Hay 2 pantallas más mientras el usuario completa su perfil
+                      // después de registrarse, está disponible en la versión pro consíguelo ahora
                       // 🔗 https://theflutterway.gumroad.com/l/fluttershop
                       Navigator.pushNamed(context, entryPointScreenRoute);
                     },
-                    child: const Text("Continue"),
+                    child: const Text("Continuar"),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Do you have an account?"),
+                      const Text("¿Ya tienes una cuenta?"),
                       TextButton(
                         onPressed: () {
                           Navigator.pushNamed(context, logInScreenRoute);
                         },
-                        child: const Text("Log in"),
+                        child: const Text("Iniciar sesión"),
                       )
                     ],
                   ),
