@@ -27,7 +27,7 @@ class OrderProgress extends StatelessWidget {
         Expanded(
           child: ProcessDotWithLine(
             isShowLeftLine: false,
-            title: "Ordered",
+            title: "Ordenado",
             status: orderStatus,
             nextStatus: processingStatus,
           ),
@@ -35,14 +35,14 @@ class OrderProgress extends StatelessWidget {
         Expanded(
           child: ProcessDotWithLine(
             isActive: processingStatus == OrderProcessStatus.processing,
-            title: "Processing",
+            title: "Procesando",
             status: processingStatus,
             nextStatus: packedStatus,
           ),
         ),
         Expanded(
           child: ProcessDotWithLine(
-            title: "Packed",
+            title: "Empacado",
             status: packedStatus,
             nextStatus: shippedStatus,
             isActive: packedStatus == OrderProcessStatus.processing,
@@ -50,7 +50,7 @@ class OrderProgress extends StatelessWidget {
         ),
         Expanded(
           child: ProcessDotWithLine(
-            title: "Shipped",
+            title: "Enviado",
             status: shippedStatus,
             nextStatus: isCanceled ? OrderProcessStatus.error : deliveredStatus,
             isActive: shippedStatus == OrderProcessStatus.processing,
@@ -59,7 +59,7 @@ class OrderProgress extends StatelessWidget {
         isCanceled
             ? const Expanded(
                 child: ProcessDotWithLine(
-                  title: "Canceled",
+                  title: "Cancelado",
                   status: OrderProcessStatus.canceled,
                   isShowRightLine: false,
                   isActive: true,
@@ -67,7 +67,7 @@ class OrderProgress extends StatelessWidget {
               )
             : Expanded(
                 child: ProcessDotWithLine(
-                  title: "Delivered",
+                  title: "Entregado",
                   status: deliveredStatus,
                   isShowRightLine: false,
                   isActive: deliveredStatus == OrderProcessStatus.done,
@@ -140,7 +140,7 @@ class ProcessDotWithLine extends StatelessWidget {
   }
 }
 
-enum OrderProcessStatus { done, processing, notDoneYeat, error, canceled }
+enum OrderProcessStatus { done, processing, notDoneYet, error, canceled }
 
 Widget statusWidget(BuildContext context, OrderProcessStatus status) {
   switch (status) {
@@ -156,7 +156,7 @@ Widget statusWidget(BuildContext context, OrderProcessStatus status) {
           ),
         ),
       );
-    case OrderProcessStatus.notDoneYeat:
+    case OrderProcessStatus.notDoneYet:
       return CircleAvatar(
         radius: 12,
         backgroundColor: Theme.of(context).dividerColor,
@@ -203,7 +203,7 @@ Widget statusWidget(BuildContext context, OrderProcessStatus status) {
 
 Color lineColor(BuildContext context, OrderProcessStatus status) {
   switch (status) {
-    case OrderProcessStatus.notDoneYeat:
+    case OrderProcessStatus.notDoneYet:
       return Theme.of(context).dividerColor;
 
     case OrderProcessStatus.error:

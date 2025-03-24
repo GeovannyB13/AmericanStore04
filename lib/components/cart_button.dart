@@ -6,8 +6,8 @@ class CartButton extends StatelessWidget {
   const CartButton({
     super.key,
     required this.price,
-    this.title = "Buy Now",
-    this.subTitle = "Unit price",
+    this.title = "Comprar Ahora",
+    this.subTitle = "Precio unitario",
     required this.press,
   });
 

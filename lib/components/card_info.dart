@@ -40,8 +40,7 @@ class CardInfo extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: defaultPadding),
+                      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -61,8 +60,7 @@ class CardInfo extends StatelessWidget {
                                   radius: 12,
                                   backgroundColor: Colors.white,
                                   child: Padding(
-                                    padding: const EdgeInsets.all(
-                                        defaultPadding / 4),
+                                    padding: const EdgeInsets.all(defaultPadding / 4),
                                     child: SvgPicture.asset(
                                       "assets/icons/Singlecheck.svg",
                                       colorFilter: const ColorFilter.mode(
@@ -136,15 +134,11 @@ class CardInfo extends StatelessWidget {
                   hintText: "CVV",
                   counterText: "",
                   prefixIcon: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: defaultPadding * 0.75),
+                    padding: const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
                     child: SvgPicture.asset(
                       "assets/icons/CVV.svg",
                       colorFilter: ColorFilter.mode(
-                          Theme.of(context)
-                              .inputDecorationTheme
-                              .hintStyle!
-                              .color!,
+                          Theme.of(context).inputDecorationTheme.hintStyle!.color!,
                           BlendMode.srcIn),
                     ),
                   ),

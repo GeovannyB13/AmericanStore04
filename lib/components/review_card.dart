@@ -55,7 +55,7 @@ class ReviewCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Text("Based on $numOfReviews Reviews"),
+                Text("Basado en $numOfReviews Reseñas"),
                 const SizedBox(height: defaultPadding),
                 RatingBar.builder(
                   initialRating: rating,
@@ -113,7 +113,7 @@ class RateBar extends StatelessWidget {
           SizedBox(
             width: 40,
             child: Text(
-              "$star Star",
+              "$star Estrella${star > 1 ? 's' : ''}",
               style: Theme.of(context).textTheme.labelSmall!.copyWith(
                   color: Theme.of(context).textTheme.bodyMedium!.color),
             ),

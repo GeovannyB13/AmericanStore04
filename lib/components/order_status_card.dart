@@ -63,7 +63,7 @@ class OrderStatusCard extends StatelessWidget {
                             ),
                             child: Row(
                               children: [
-                                const Text("Order"),
+                                const Text("Pedido"),
                                 const SizedBox(width: defaultPadding / 2),
                                 Text("#$orderId"),
                               ],
@@ -71,7 +71,7 @@ class OrderStatusCard extends StatelessWidget {
                           ),
                           const SizedBox(height: defaultPadding / 2),
                           Text(
-                            "Placed on $placedOn",
+                            "Realizado el $placedOn",
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
                         ],

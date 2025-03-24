@@ -65,7 +65,6 @@ class _BuyFullKitState extends State<BuyFullKit> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Image.asset("assets/screens/Forgot_password.png"),
           PageView.builder(
             controller: _pageController,
             itemCount: widget.images.length,
@@ -101,39 +100,24 @@ class _BuyFullKitState extends State<BuyFullKit> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Get the full template",
+                        "Explora nuestra tienda",
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const SizedBox(height: defaultPadding),
                       const Text(
-                        "Thank you for using The Flutter Way shop template. You're currently using the free version. Please get the full kit to use this screen.",
+                        "Gracias por usar nuestra aplicación de tienda. Explora nuestras categorías y encuentra los mejores productos para ti.",
                       ),
                       const SizedBox(height: defaultPadding),
                       Row(
                         children: [
                           Expanded(
                             child: ElevatedButton.icon(
-                              onPressed: () async {
-                                await Clipboard.setData(const ClipboardData(
-                                        text:
-                                            "https://app.gumroad.com/checkout?_gl=1*1j1owy*_ga*Nzc0MTA1NTYwLjE3MjAwMTA3MzM.*_ga_6LJN6D94N6*MTcyMDA0MjQzMC41LjEuMTcyMDA0MjQzMS4wLjAuMA..&product=uxznc&option=B3wWhE6QH46cfm31C7jEmQ%3D%3D&quantity=1&referrer=App"))
-                                    .then((value) {
-                                  setState(() {
-                                    _isCopied = true;
-                                  });
-                                  Future.delayed(const Duration(seconds: 2),
-                                      () {
-                                    setState(() {
-                                      _isCopied = false;
-                                    });
-                                  });
-                                });
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/categories');
                               },
-                              // child: Text("Get full kit"),
-                              label:
-                                  Text(_isCopied ? "Link Copyed" : "Copy link"),
+                              label: const Text("Categorías"),
                               icon: SvgPicture.asset(
-                                "assets/icons/world_map.svg",
+                                "assets/icons/Category.svg",
                                 colorFilter: const ColorFilter.mode(
                                   Colors.white,
                                   BlendMode.srcIn,
@@ -144,19 +128,52 @@ class _BuyFullKitState extends State<BuyFullKit> {
                           const SizedBox(width: defaultPadding),
                           Expanded(
                             child: OutlinedButton.icon(
-                              onPressed: () async {
-                                buyLink();
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/offers');
                               },
-                              // child: Text("Get full kit"),
-                              label: const Text("Get full code"),
+                              label: const Text("Ofertas"),
                               icon: SvgPicture.asset(
-                                "assets/icons/Bag.svg",
+                                "assets/icons/Offer.svg",
                                 colorFilter: const ColorFilter.mode(
                                   primaryColor,
                                   BlendMode.srcIn,
                                 ),
-                                // height: 24,
-                                // width: 24,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: defaultPadding),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: ElevatedButton.icon(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/new_arrivals');
+                              },
+                              label: const Text("Novedades"),
+                              icon: SvgPicture.asset(
+                                "assets/icons/New.svg",
+                                colorFilter: const ColorFilter.mode(
+                                  Colors.white,
+                                  BlendMode.srcIn,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: defaultPadding),
+                          Expanded(
+                            child: OutlinedButton.icon(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/cart');
+                              },
+                              label: const Text("Carrito"),
+                              icon: SvgPicture.asset(
+                                "assets/icons/Cart.svg",
+                                colorFilter: const ColorFilter.mode(
+                                  primaryColor,
+                                  BlendMode.srcIn,
+                                ),
                               ),
                             ),
                           ),
