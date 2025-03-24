@@ -19,17 +19,17 @@ class PopularProducts extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(defaultPadding),
           child: Text(
-            "Popular products",
+            "Productos populares",
             style: Theme.of(context).textTheme.titleSmall,
           ),
         ),
-        // While loading use 👇
+        // Mientras se carga, usa 👇
         // const ProductsSkelton(),
         SizedBox(
           height: 220,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            // Find demoPopularProducts on models/ProductModel.dart
+            // Encuentra demoPopularProducts en models/ProductModel.dart
             itemCount: demoPopularProducts.length,
             itemBuilder: (context, index) => Padding(
               padding: EdgeInsets.only(

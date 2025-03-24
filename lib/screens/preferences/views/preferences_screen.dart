@@ -10,11 +10,11 @@ class PreferencesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Cookie preferences"),
+        title: const Text("Preferencias de Cookies"),
         actions: [
           TextButton(
             onPressed: () {},
-            child: const Text("Reset"),
+            child: const Text("Restablecer"),
           )
         ],
       ),
@@ -23,17 +23,17 @@ class PreferencesScreen extends StatelessWidget {
         child: Column(
           children: [
             PreferencesListTile(
-              titleText: "Analytics",
+              titleText: "Analíticas",
               subtitleTxt:
-                  "Analytics cookies help us improve our application by collecting and reporting info on how you use it. They collect information in a way that does not directly identify anyone.",
+                  "Las cookies analíticas nos ayudan a mejorar nuestra aplicación recopilando y reportando información sobre cómo la usas. Recopilan información de una manera que no identifica directamente a nadie.",
               isActive: true,
               press: () {},
             ),
             const Divider(height: defaultPadding * 2),
             PreferencesListTile(
-              titleText: "Personalization",
+              titleText: "Personalización",
               subtitleTxt:
-                  "Personalisation cookies collect information about your use of this app in order to display contect and experience that are relevant to you.",
+                  "Las cookies de personalización recopilan información sobre tu uso de esta aplicación para mostrar contenido y experiencias que sean relevantes para ti.",
               isActive: false,
               press: () {},
             ),
@@ -41,15 +41,15 @@ class PreferencesScreen extends StatelessWidget {
             PreferencesListTile(
               titleText: "Marketing",
               subtitleTxt:
-                  "Maarketing cookies collec information about your use of this and other apps to enable display ads and other marketing that is more relevant to you.",
+                  "Las cookies de marketing recopilan información sobre tu uso de esta y otras aplicaciones para mostrar anuncios y otros contenidos de marketing que sean más relevantes para ti.",
               isActive: false,
               press: () {},
             ),
             const Divider(height: defaultPadding * 2),
             PreferencesListTile(
-              titleText: "Social media cookies",
+              titleText: "Cookies de redes sociales",
               subtitleTxt:
-                  "These cookies are set by a range of social media services that we have added to the site to enable you to share our content with your friends and networks.",
+                  "Estas cookies son establecidas por una variedad de servicios de redes sociales que hemos añadido al sitio para permitirte compartir nuestro contenido con tus amigos y redes.",
               isActive: false,
               press: () {},
             ),

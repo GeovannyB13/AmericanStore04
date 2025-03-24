@@ -4,7 +4,7 @@ import 'package:shop/route/screen_export.dart';
 
 import '../../../../constants.dart';
 
-// For preview
+// Para vista previa
 class CategoryModel {
   final String name;
   final String? svgSrc, route;
@@ -17,17 +17,17 @@ class CategoryModel {
 }
 
 List<CategoryModel> demoCategories = [
-  CategoryModel(name: "All Categories"),
+  CategoryModel(name: "Todas las Categorías"),
   CategoryModel(
-      name: "On Sale",
+      name: "En Oferta",
       svgSrc: "assets/icons/Sale.svg",
       route: onSaleScreenRoute),
-  CategoryModel(name: "Man's", svgSrc: "assets/icons/Man.svg"),
-  CategoryModel(name: "Woman’s", svgSrc: "assets/icons/Woman.svg"),
+  CategoryModel(name: "Hombres", svgSrc: "assets/icons/Man.svg"),
+  CategoryModel(name: "Mujeres", svgSrc: "assets/icons/Woman.svg"),
   CategoryModel(
-      name: "Kids", svgSrc: "assets/icons/Child.svg", route: kidsScreenRoute),
+      name: "Niños", svgSrc: "assets/icons/Child.svg", route: kidsScreenRoute),
 ];
-// End For Preview
+// Fin de vista previa
 
 class Categories extends StatelessWidget {
   const Categories({

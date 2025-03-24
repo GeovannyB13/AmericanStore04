@@ -20,36 +20,36 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
     Onbord(
       image: "assets/Illustration/Illustration-0.png",
       imageDarkTheme: "assets/Illustration/Illustration_darkTheme_0.png",
-      title: "Find the item you’ve \nbeen looking for",
+      title: "Encuentra el artículo que \nhas estado buscando",
       description:
-          "Here you’ll see rich varieties of goods, carefully classified for seamless browsing experience.",
+          "Aquí verás una gran variedad de productos, cuidadosamente clasificados para una experiencia de navegación sin problemas.",
     ),
     Onbord(
       image: "assets/Illustration/Illustration-1.png",
       imageDarkTheme: "assets/Illustration/Illustration_darkTheme_1.png",
-      title: "Get those shopping \nbags filled",
+      title: "Llena esas bolsas de \ncompras",
       description:
-          "Add any item you want to your cart, or save it on your wishlist, so you don’t miss it in your future purchases.",
+          "Añade cualquier artículo que desees a tu carrito, o guárdalo en tu lista de deseos, para que no lo pierdas en tus futuras compras.",
     ),
     Onbord(
       image: "assets/Illustration/Illustration-2.png",
       imageDarkTheme: "assets/Illustration/Illustration_darkTheme_2.png",
-      title: "Fast & secure \npayment",
-      description: "There are many payment options available for your ease.",
+      title: "Pago rápido y seguro",
+      description: "Hay muchas opciones de pago disponibles para tu comodidad.",
     ),
     Onbord(
       image: "assets/Illustration/Illustration-3.png",
       imageDarkTheme: "assets/Illustration/Illustration_darkTheme_3.png",
-      title: "Package tracking",
+      title: "Seguimiento de paquetes",
       description:
-          "In particular, Shoplon can pack your orders, and help you seamlessly manage your shipments.",
+          "En particular, Shoplon puede empaquetar tus pedidos y ayudarte a gestionar tus envíos sin problemas.",
     ),
     Onbord(
       image: "assets/Illustration/Illustration-4.png",
       imageDarkTheme: "assets/Illustration/Illustration_darkTheme_4.png",
-      title: "Nearby stores",
+      title: "Tiendas cercanas",
       description:
-          "Easily track nearby shops, browse through their items and get information about their prodcuts.",
+          "Rastrea fácilmente las tiendas cercanas, navega por sus artículos y obtén información sobre sus productos.",
     ),
   ];
 
@@ -80,7 +80,7 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
                     Navigator.pushNamed(context, logInScreenRoute);
                   },
                   child: Text(
-                    "Skip",
+                    "Saltar",
                     style: TextStyle(
                         color: Theme.of(context).textTheme.bodyLarge!.color),
                   ),

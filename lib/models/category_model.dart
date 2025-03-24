@@ -20,40 +20,34 @@ final List<CategoryModel> demoCategoriesWithImage = [
 
 final List<CategoryModel> demoCategories = [
   CategoryModel(
-    title: "On sale",
-    svgSrc: "assets/icons/Sale.svg",
+    title: "Ropa",
+    svgSrc: "assets/icons/Clothing.svg",
     subCategories: [
-      CategoryModel(title: "All Clothing"),
-      CategoryModel(title: "New In"),
-      CategoryModel(title: "Coats & Jackets"),
-      CategoryModel(title: "Dresses"),
+      CategoryModel(title: "Todo la Ropa"),
+      CategoryModel(title: "Novedades"),
+      CategoryModel(title: "Abrigos y Chaquetas"),
+      CategoryModel(title: "Vestidos"),
       CategoryModel(title: "Jeans"),
     ],
   ),
   CategoryModel(
-    title: "Man’s & Woman’s",
-    svgSrc: "assets/icons/Man&Woman.svg",
+    title: "Zapatos",
+    svgSrc: "assets/icons/Shoes.svg",
     subCategories: [
-      CategoryModel(title: "All Clothing"),
-      CategoryModel(title: "New In"),
-      CategoryModel(title: "Coats & Jackets"),
+      CategoryModel(title: "Todo los Zapatos"),
+      CategoryModel(title: "Novedades"),
+      CategoryModel(title: "Deportivos"),
+      CategoryModel(title: "Formales"),
     ],
   ),
   CategoryModel(
-    title: "Kids",
-    svgSrc: "assets/icons/Child.svg",
+    title: "Vitaminas",
+    svgSrc: "assets/icons/Vitamins.svg",
     subCategories: [
-      CategoryModel(title: "All Clothing"),
-      CategoryModel(title: "New In"),
-      CategoryModel(title: "Coats & Jackets"),
-    ],
-  ),
-  CategoryModel(
-    title: "Accessories",
-    svgSrc: "assets/icons/Accessories.svg",
-    subCategories: [
-      CategoryModel(title: "All Clothing"),
-      CategoryModel(title: "New In"),
+      CategoryModel(title: "Todas las Vitaminas"),
+      CategoryModel(title: "Novedades"),
+      CategoryModel(title: "Vitaminas A-Z"),
+      CategoryModel(title: "Suplementos"),
     ],
   ),
 ];

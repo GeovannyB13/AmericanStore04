@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shop/components/buy_full_ui_kit.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop/components/network_image_with_loader.dart';
+import 'package:shop/constants.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -9,19 +11,87 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  final TextEditingController _searchController = TextEditingController();
+  final List<String> _searchResults = [];
+
+  void _onSearchChanged() {
+    setState(() {
+      // Aquí puedes agregar la lógica para actualizar los resultados de búsqueda
+      _searchResults.clear();
+      if (_searchController.text.isNotEmpty) {
+        _searchResults.addAll([
+          "Resultado 1",
+          "Resultado 2",
+          "Resultado 3",
+        ]);
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _searchController.addListener(_onSearchChanged);
+  }
+
+  @override
+  void dispose() {
+    _searchController.removeListener(_onSearchChanged);
+    _searchController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const BuyFullKit(
-      images: [
-        "assets/screens/SEARCH_1.png",
-        "assets/screens/Search_2.png",
-        "assets/screens/Search_3.png",
-        "assets/screens/Search_4.png",
-        "assets/screens/Search_5.png",
-        "assets/screens/Search_6.png",
-        "assets/screens/Search_7.png",
-        "assets/screens/Search_8.png",
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Buscar"),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(defaultPadding),
+        child: Column(
+          children: [
+            TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                hintText: "Buscar productos...",
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(defaultPadding / 2),
+                  child: SvgPicture.asset(
+                    "assets/icons/Search.svg",
+                    height: 24,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(defaultBorderRadious),
+                ),
+              ),
+            ),
+            const SizedBox(height: defaultPadding),
+            Expanded(
+              child: _searchResults.isEmpty
+                  ? Center(
+                      child: Text(
+                        "No se encontraron resultados",
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    )
+                  : ListView.builder(
+                      itemCount: _searchResults.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(_searchResults[index]),
+                          onTap: () {
+                            // Aquí puedes agregar la lógica para manejar la selección de un resultado de búsqueda
+                          },
+                        );
+                      },
+                    ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

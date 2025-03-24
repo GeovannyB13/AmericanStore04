@@ -16,28 +16,28 @@ class FlashSale extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // While loading show 👇
+        // Mientras se carga, muestra 👇
         // const BannerMWithCounterSkelton(),
         BannerMWithCounter(
           duration: const Duration(hours: 8),
-          text: "Super Flash Sale \n50% Off",
+          text: "Super Venta Flash \n50% de Descuento",
           press: () {},
         ),
         const SizedBox(height: defaultPadding / 2),
         Padding(
           padding: const EdgeInsets.all(defaultPadding),
           child: Text(
-            "Flash sale",
+            "Venta Flash",
             style: Theme.of(context).textTheme.titleSmall,
           ),
         ),
-        // While loading show 👇
+        // Mientras se carga, muestra 👇
         // const ProductsSkelton(),
         SizedBox(
           height: 220,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            // Find demoFlashSaleProducts on models/ProductModel.dart
+            // Encuentra demoFlashSaleProducts en models/ProductModel.dart
             itemCount: demoFlashSaleProducts.length,
             itemBuilder: (context, index) => Padding(
               padding: EdgeInsets.only(

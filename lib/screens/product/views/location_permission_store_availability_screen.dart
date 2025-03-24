@@ -25,7 +25,7 @@ class LocationPermissonStoreAvailabilityScreen extends StatelessWidget {
                     child: BackButton(),
                   ),
                   Text(
-                    "Store Pickup Availability",
+                    "Disponibilidad de Recogida en Tienda",
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
                   const SizedBox(width: 40),
@@ -42,7 +42,7 @@ class LocationPermissonStoreAvailabilityScreen extends StatelessWidget {
                       child: TextFormField(
                         decoration: InputDecoration(
                           fillColor: Colors.transparent,
-                          hintText: "Find something...",
+                          hintText: "Buscar algo...",
                           border: secodaryOutlineInputBorder(context),
                           enabledBorder: secodaryOutlineInputBorder(context),
                           focusedBorder: secodaryOutlineInputBorder(context),
@@ -73,7 +73,7 @@ class LocationPermissonStoreAvailabilityScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Your Location Services are turned off.",
+                      "Tus Servicios de Ubicación están desactivados.",
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
@@ -81,12 +81,12 @@ class LocationPermissonStoreAvailabilityScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: defaultPadding),
                     const Text(
-                      "Turn on Location Services in your device Settings to search for stores by current location. You can still search by Country/Region, City or Zip Code.",
+                      "Activa los Servicios de Ubicación en la Configuración de tu dispositivo para buscar tiendas por ubicación actual. Aún puedes buscar por País/Región, Ciudad o Código Postal.",
                     ),
                     const SizedBox(height: defaultPadding * 1.5),
                     ElevatedButton(
                       onPressed: () {},
-                      child: const Text("Settings"),
+                      child: const Text("Configuración"),
                     )
                   ],
                 ),

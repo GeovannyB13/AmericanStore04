@@ -23,11 +23,11 @@ class DiscoverScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                   horizontal: defaultPadding, vertical: defaultPadding / 2),
               child: Text(
-                "Categories",
+                "Categorías",
                 style: Theme.of(context).textTheme.titleSmall,
               ),
             ),
-            // While loading use 👇
+            // Mientras se carga, usa 👇
             // const Expanded(
             //   child: DiscoverCategoriesSkelton(),
             // ),

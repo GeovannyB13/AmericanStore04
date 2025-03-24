@@ -37,7 +37,7 @@ class ProductDetailsScreen extends StatelessWidget {
             )
           :
 
-          /// If profuct is not available then show [NotifyMeCard]
+          /// Si el producto no está disponible, muestra [NotifyMeCard]
           NotifyMeCard(
               isNotify: false,
               onChanged: (value) {},
@@ -61,16 +61,16 @@ class ProductDetailsScreen extends StatelessWidget {
             ),
             ProductInfo(
               brand: "LIPSY LONDON",
-              title: "Sleeveless Ruffle",
+              title: "Sin mangas con volantes",
               isAvailable: isProductAvailable,
               description:
-                  "A cool gray cap in soft corduroy. Watch me.' By buying cotton products from Lindex, you’re supporting more responsibly...",
+                  "Una gorra gris fresca en pana suave. Mírame.' Al comprar productos de algodón de Lindex, estás apoyando una producción más responsable...",
               rating: 4.4,
               numOfReviews: 126,
             ),
             ProductListTile(
               svgSrc: "assets/icons/Product.svg",
-              title: "Product Details",
+              title: "Detalles del Producto",
               press: () {
                 customModalBottomSheet(
                   context,
@@ -82,7 +82,7 @@ class ProductDetailsScreen extends StatelessWidget {
             ),
             ProductListTile(
               svgSrc: "assets/icons/Delivery.svg",
-              title: "Shipping Information",
+              title: "Información de Envío",
               press: () {
                 customModalBottomSheet(
                   context,
@@ -95,7 +95,7 @@ class ProductDetailsScreen extends StatelessWidget {
             ),
             ProductListTile(
               svgSrc: "assets/icons/Return.svg",
-              title: "Returns",
+              title: "Devoluciones",
               isShowBottomBorder: true,
               press: () {
                 customModalBottomSheet(
@@ -121,7 +121,7 @@ class ProductDetailsScreen extends StatelessWidget {
             ),
             ProductListTile(
               svgSrc: "assets/icons/Chat.svg",
-              title: "Reviews",
+              title: "Reseñas",
               isShowBottomBorder: true,
               press: () {
                 Navigator.pushNamed(context, productReviewsScreenRoute);
@@ -131,7 +131,7 @@ class ProductDetailsScreen extends StatelessWidget {
               padding: const EdgeInsets.all(defaultPadding),
               sliver: SliverToBoxAdapter(
                 child: Text(
-                  "You may also like",
+                  "También te puede interesar",
                   style: Theme.of(context).textTheme.titleSmall!,
                 ),
               ),
@@ -148,7 +148,7 @@ class ProductDetailsScreen extends StatelessWidget {
                         right: index == 4 ? defaultPadding : 0),
                     child: ProductCard(
                       image: productDemoImg2,
-                      title: "Sleeveless Tiered Dobby Swing Dress",
+                      title: "Vestido sin mangas con volantes",
                       brandName: "LIPSY LONDON",
                       price: 24.65,
                       priceAfetDiscount: index.isEven ? 20.99 : null,

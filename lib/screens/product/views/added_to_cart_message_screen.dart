@@ -22,7 +22,7 @@ class AddedToCartMessageScreen extends StatelessWidget {
               ),
               const Spacer(flex: 2),
               Text(
-                "Added to cart",
+                "Añadido al carrito",
                 style: Theme.of(context)
                     .textTheme
                     .headlineSmall!
@@ -30,7 +30,7 @@ class AddedToCartMessageScreen extends StatelessWidget {
               ),
               const SizedBox(height: defaultPadding / 2),
               const Text(
-                "Click the checkout button to complete the purchase process.",
+                "Haz clic en el botón de pago para completar el proceso de compra.",
                 textAlign: TextAlign.center,
               ),
               const Spacer(flex: 2),
@@ -38,12 +38,12 @@ class AddedToCartMessageScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, entryPointScreenRoute);
                 },
-                child: const Text("Continue shopping"),
+                child: const Text("Seguir comprando"),
               ),
               const SizedBox(height: defaultPadding),
               ElevatedButton(
                 onPressed: () {},
-                child: const Text("Checkout"),
+                child: const Text("Pagar"),
               ),
               const Spacer(),
             ],

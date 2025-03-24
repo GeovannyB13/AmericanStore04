@@ -28,18 +28,18 @@ class HomeScreen extends StatelessWidget {
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  // While loading use 👇
-                  // const BannerMSkelton(),‚
+                  // Mientras se carga, usa 👇
+                  // const BannerMSkelton(),
                   BannerSStyle1(
-                    title: "New \narrival",
-                    subtitle: "SPECIAL OFFER",
+                    title: "Nueva \nllegada",
+                    subtitle: "OFERTA ESPECIAL",
                     discountParcent: 50,
                     press: () {
                       Navigator.pushNamed(context, onSaleScreenRoute);
                     },
                   ),
                   const SizedBox(height: defaultPadding / 4),
-                  // We have 4 banner styles, all in the pro version
+                  // Tenemos 4 estilos de banner, todos en la versión pro
                 ],
               ),
             ),
@@ -49,14 +49,13 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: defaultPadding * 1.5),
-
                   const SizedBox(height: defaultPadding / 4),
-                  // While loading use 👇
+                  // Mientras se carga, usa 👇
                   // const BannerSSkelton(),
                   BannerSStyle5(
-                    title: "Black \nfriday",
-                    subtitle: "50% Off",
-                    bottomText: "Collection".toUpperCase(),
+                    title: "Viernes \nnegro",
+                    subtitle: "50% de Descuento",
+                    bottomText: "Colección".toUpperCase(),
                     press: () {
                       Navigator.pushNamed(context, onSaleScreenRoute);
                     },

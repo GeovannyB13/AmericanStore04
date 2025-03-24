@@ -18,14 +18,14 @@ class SignUpForm extends StatelessWidget {
       child: Column(
         children: [
           TextFormField(
-            onSaved: (emal) {
-              // Email
+            onSaved: (email) {
+              // Correo electrónico
             },
             validator: emaildValidator.call,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
-              hintText: "Email address",
+              hintText: "Correo electrónico",
               prefixIcon: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
@@ -48,12 +48,12 @@ class SignUpForm extends StatelessWidget {
           const SizedBox(height: defaultPadding),
           TextFormField(
             onSaved: (pass) {
-              // Password
+              // Contraseña
             },
             validator: passwordValidator.call,
             obscureText: true,
             decoration: InputDecoration(
-              hintText: "Password",
+              hintText: "Contraseña",
               prefixIcon: Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),

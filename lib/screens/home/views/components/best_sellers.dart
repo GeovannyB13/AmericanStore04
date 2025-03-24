@@ -19,17 +19,17 @@ class BestSellers extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(defaultPadding),
           child: Text(
-            "Best sellers",
+            "Más vendidos",
             style: Theme.of(context).textTheme.titleSmall,
           ),
         ),
-        // While loading use 👇
+        // Mientras se carga, usa 👇
         // const ProductsSkelton(),
         SizedBox(
           height: 220,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            // Find demoBestSellersProducts on models/ProductModel.dart
+            // Encuentra demoBestSellersProducts en models/ProductModel.dart
             itemCount: demoBestSellersProducts.length,
             itemBuilder: (context, index) => Padding(
               padding: EdgeInsets.only(

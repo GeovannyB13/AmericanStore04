@@ -14,18 +14,18 @@ class OffersCarouselAndCategories extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // While loading use 👇
+        // Mientras se carga, usa 👇
         // const OffersSkelton(),
         const OffersCarousel(),
         const SizedBox(height: defaultPadding / 2),
         Padding(
           padding: const EdgeInsets.all(defaultPadding),
           child: Text(
-            "Categories",
+            "Categorías",
             style: Theme.of(context).textTheme.titleSmall,
           ),
         ),
-        // While loading use 👇
+        // Mientras se carga, usa 👇
         // const CategoriesSkelton(),
         const Categories(),
       ],

@@ -27,7 +27,7 @@ class OnbordingContent extends StatelessWidget {
           ),
         if (isTextOnTop) const Spacer(),
 
-        /// if you are using SVG then replace [Image.asset] with [SvgPicture.asset]
+        /// si estás usando SVG, reemplaza [Image.asset] con [SvgPicture.asset]
 
         Image.asset(
           image,
@@ -35,10 +35,9 @@ class OnbordingContent extends StatelessWidget {
         ),
         if (!isTextOnTop) const Spacer(),
         if (!isTextOnTop)
-          const OnbordTitleDescription(
-            title: "Find the item you’ve \nbeen looking for",
-            description:
-                "Here you’ll see rich varieties of goods, carefully classified for seamless browsing experience.",
+          OnbordTitleDescription(
+            title: title,
+            description: description,
           ),
 
         const Spacer(),

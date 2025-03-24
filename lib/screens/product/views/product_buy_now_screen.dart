@@ -27,8 +27,8 @@ class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
     return Scaffold(
       bottomNavigationBar: CartButton(
         price: 269.4,
-        title: "Add to cart",
-        subTitle: "Total price",
+        title: "Añadir al carrito",
+        subTitle: "Precio total",
         press: () {
           customModalBottomSheet(
             context,
@@ -47,7 +47,7 @@ class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
               children: [
                 const BackButton(),
                 Text(
-                  "Sleeveless Ruffle",
+                  "Sin mangas con volantes",
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 IconButton(
@@ -115,7 +115,7 @@ class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
                 SliverPadding(
                   padding: const EdgeInsets.symmetric(vertical: defaultPadding),
                   sliver: ProductListTile(
-                    title: "Size guide",
+                    title: "Guía de tallas",
                     svgSrc: "assets/icons/Sizeguid.svg",
                     isShowBottomBorder: true,
                     press: () {
@@ -136,12 +136,12 @@ class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
                       children: [
                         const SizedBox(height: defaultPadding / 2),
                         Text(
-                          "Store pickup availability",
+                          "Disponibilidad de recogida en tienda",
                           style: Theme.of(context).textTheme.titleSmall,
                         ),
                         const SizedBox(height: defaultPadding / 2),
                         const Text(
-                            "Select a size to check store availability and In-Store pickup options.")
+                            "Selecciona una talla para comprobar la disponibilidad en tienda y las opciones de recogida en tienda.")
                       ],
                     ),
                   ),
@@ -149,7 +149,7 @@ class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
                 SliverPadding(
                   padding: const EdgeInsets.symmetric(vertical: defaultPadding),
                   sliver: ProductListTile(
-                    title: "Check stores",
+                    title: "Comprobar tiendas",
                     svgSrc: "assets/icons/Stores.svg",
                     isShowBottomBorder: true,
                     press: () {
