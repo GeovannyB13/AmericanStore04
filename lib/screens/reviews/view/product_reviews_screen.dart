@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shop/components/review_card.dart';
 import 'package:shop/constants.dart';
 
 class ProductReviewsScreen extends StatelessWidget {

@@ -14,7 +14,7 @@ class CartScreen extends StatelessWidget {
       );
     });
 
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: CircularProgressIndicator(), // Muestra un indicador de carga mientras se redirige
       ),
