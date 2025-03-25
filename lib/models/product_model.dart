@@ -95,7 +95,7 @@ List<ProductModel> demoFlashSaleProducts = [
 
 List<ProductModel> demoBestSellersProducts = [
   ProductModel(
-    image: "https://i.imgur.com/tXyOMMG.png",
+    image: "https://drive.google.com/file/d/1SmVW4mkGRiXyTRhEiOFp75cCGKQG9olG/view?usp=drive_link",
     title: "Frente Ruched Poplin Verde",
     brandName: "Marca E",
     price: 650.62,
@@ -103,7 +103,7 @@ List<ProductModel> demoBestSellersProducts = [
     dicountpercent: 40,
   ),
   ProductModel(
-    image: "https://i.imgur.com/h2LqppX.png",
+    image: "https://drive.google.com/file/d/1s1id1gdoAeolS4pxCtK4sxGySxJY38lW/view?usp=drive_link",
     title: "Top de Corsé de Satén Blanco",
     brandName: "Marca F",
     price: 1264,
