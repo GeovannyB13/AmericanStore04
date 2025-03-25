@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
 // Just for demo
-const productDemoImg1 = "https://i.imgur.com/CGCyp1d.png";
-const productDemoImg2 = "https://i.imgur.com/AkzWQuJ.png";
-const productDemoImg3 = "https://i.imgur.com/J7mGZ12.png";
-const productDemoImg4 = "https://i.imgur.com/q9oF9Yq.png";
-const productDemoImg5 = "https://i.imgur.com/MsppAcx.png";
-const productDemoImg6 = "https://i.imgur.com/JfyZlnO.png";
+const productDemoImg1 = "https://drive.usercontent.google.com/u/0/uc?id=1s1id1gdoAeolS4pxCtK4sxGySxJY38lW&export=download";
+const productDemoImg2 = "https://drive.usercontent.google.com/download?id=1uo1gP5dROMV5KD8PmPm4aoyn44sKLjBy&export=download&authuser=0&confirm=t&uuid=841754dd-0ce5-49de-a7be-617fa712d7d5&at=AEz70l57VpVzoYWFXSm0Hv4jOrME:1742912482908";
+const productDemoImg3 = "https://drive.usercontent.google.com/download?id=1-bM_eZQRTCJ0T6kkNVjQ1gfD6GIRxMn8&export=download&authuser=0&confirm=t&uuid=63aa39be-53da-451a-b854-f48bd0d30372&at=AEz70l7tpsBEXc0HSS0vPXrvGdv4:1742912535006";
+const productDemoImg4 = "https://drive.usercontent.google.com/download?id=1g-Wb1eonZH2JOxEdqwRBFaqT1qH5tWtl&export=download&authuser=0&confirm=t&uuid=ef0c29fd-0ded-46b8-ae7b-54f63bcbe3b6&at=AEz70l5xbh_-42kjndIuZ1xKC0Fn:1742912614822";
+const productDemoImg5 = "https://drive.usercontent.google.com/download?id=1fEiJjNmh2VQlfmN2XMV8Vg8t1OrmYQAs&export=download&authuser=0&confirm=t&uuid=5d717872-b2fe-42f3-947f-3ad5480367f4&at=AEz70l5iJ05mWTwBXq5L6NEk4OTC:1742912669891";
+const productDemoImg6 = "https://drive.usercontent.google.com/download?id=1mq3VYG8HxLOsJUIUlOxxy593Ey2G6woi&export=download&authuser=0&confirm=t&uuid=a9b45cf0-471a-4476-8582-560a3bf9bd0b&at=AEz70l7Ig5bzd9jAJLAPLa_grDdw:1742912705582";
 
 // End For demo
 

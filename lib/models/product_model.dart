@@ -95,15 +95,15 @@ List<ProductModel> demoFlashSaleProducts = [
 
 List<ProductModel> demoBestSellersProducts = [
   ProductModel(
-    image: "https://drive.google.com/file/d/1SmVW4mkGRiXyTRhEiOFp75cCGKQG9olG/view?usp=drive_link",
-    title: "Frente Ruched Poplin Verde",
+    image: "https://drive.usercontent.google.com/u/0/uc?id=1s1id1gdoAeolS4pxCtK4sxGySxJY38lW&export=download",
+    title: "Jean Oversize Azul",
     brandName: "Marca E",
     price: 650.62,
     priceAfetDiscount: 390.36,
     dicountpercent: 40,
   ),
   ProductModel(
-    image: "https://drive.google.com/file/d/1s1id1gdoAeolS4pxCtK4sxGySxJY38lW/view?usp=drive_link",
+    image: "https://drive.usercontent.google.com/download?id=1vVQsXFAnHUh0Fo2eC7sKsWdwxJBFYCKf&export=download&authuser=0&confirm=t&uuid=81aa6fe0-3255-4509-ac48-2878ee24d1ff&at=AEz70l4MvMxLx85SD1Y8w8v2AU6_:1742912805963",
     title: "Top de Corsé de Satén Blanco",
     brandName: "Marca F",
     price: 1264,
