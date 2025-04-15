@@ -38,13 +38,6 @@ class _OnBordingScreenState extends State<OnBordingScreen> {
       description: "Hay muchas opciones de pago disponibles para tu comodidad.",
     ),
     Onbord(
-      image: "assets/Illustration/Illustration-3.png",
-      imageDarkTheme: "assets/Illustration/Illustration_darkTheme_3.png",
-      title: "Seguimiento de paquetes",
-      description:
-          "En particular, Shoplon puede empaquetar tus pedidos y ayudarte a gestionar tus envíos sin problemas.",
-    ),
-    Onbord(
       image: "assets/Illustration/Illustration-4.png",
       imageDarkTheme: "assets/Illustration/Illustration_darkTheme_4.png",
       title: "Tiendas cercanas",

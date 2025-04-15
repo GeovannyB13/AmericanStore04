@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/entry_point.dart';
+import 'package:shop/screens/profile/views/profile_details_screen.dart';
 
 import 'screen_export.dart';
 
@@ -299,6 +300,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //   return MaterialPageRoute(
     //     builder: (context) => const ThanksForOrderScreen(),
     //   );
+    case profileDetailsScreenRoute:
+      return MaterialPageRoute(
+        builder: (context) => const ProfileDetailsScreen(),
+      );
     default:
       return MaterialPageRoute(
         // Make a screen for undefine

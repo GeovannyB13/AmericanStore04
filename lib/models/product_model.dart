@@ -49,7 +49,7 @@ List<ProductModel> demoPopularProducts = [
     dicountpercent: 5,
   ),
   ProductModel(
-    image: "https://i.imgur.com/tXyOMMG.png",
+    image: "assets/images/Profile_example.png",
     title: "Frente Ruched Poplin Verde",
     brandName: "Marca E",
     price: 650.62,
@@ -57,7 +57,7 @@ List<ProductModel> demoPopularProducts = [
     dicountpercent: 40,
   ),
   ProductModel(
-    image: "https://i.imgur.com/h2LqppX.png",
+    image: "assets/images/Profile_example.png",
     title: "Top de Corsé de Satén Blanco",
     brandName: "Marca F",
     price: 1264,
@@ -95,7 +95,7 @@ List<ProductModel> demoFlashSaleProducts = [
 
 List<ProductModel> demoBestSellersProducts = [
   ProductModel(
-    image: "https://drive.usercontent.google.com/u/0/uc?id=1s1id1gdoAeolS4pxCtK4sxGySxJY38lW&export=download",
+    image: "assets/images/Profile_example.png",
     title: "Jean Oversize Azul",
     brandName: "Marca E",
     price: 650.62,
@@ -103,7 +103,7 @@ List<ProductModel> demoBestSellersProducts = [
     dicountpercent: 40,
   ),
   ProductModel(
-    image: "https://drive.usercontent.google.com/download?id=1vVQsXFAnHUh0Fo2eC7sKsWdwxJBFYCKf&export=download&authuser=0&confirm=t&uuid=81aa6fe0-3255-4509-ac48-2878ee24d1ff&at=AEz70l4MvMxLx85SD1Y8w8v2AU6_:1742912805963",
+    image: "assets/images/Profile_example.png",
     title: "Top de Corsé de Satén Blanco",
     brandName: "Marca F",
     price: 1264,
@@ -122,7 +122,7 @@ List<ProductModel> demoBestSellersProducts = [
 
 List<ProductModel> kidsProducts = [
   ProductModel(
-    image: "https://i.imgur.com/dbbT6PA.png",
+    image: "assets/images/Profile_example.png",
     title: "Frente Ruched Poplin Verde",
     brandName: "Marca G",
     price: 650.62,
@@ -130,7 +130,7 @@ List<ProductModel> kidsProducts = [
     dicountpercent: 24,
   ),
   ProductModel(
-    image: "https://i.imgur.com/7fSxC7k.png",
+    image: "assets/images/Profile_example.png",
     title: "Vestido Sin Mangas con Volantes",
     brandName: "Marca H",
     price: 650.62,
