@@ -17,6 +17,7 @@ class OnSaleScreen extends StatelessWidget {
         priceAfetDiscount: 80.0,
         dicountpercent: 20,
         brandName: "Marca 1",
+        category: "Electrónica", // Añadido
       ),
       ProductModel(
         title: "Producto 2",
@@ -25,6 +26,7 @@ class OnSaleScreen extends StatelessWidget {
         priceAfetDiscount: 120.0,
         dicountpercent: 20,
         brandName: "Marca 2",
+        category: "Hogar", // Añadido
       ),
       // Agrega más productos según sea necesario
     ];

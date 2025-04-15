@@ -26,7 +26,7 @@ class ProductDetailsScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: isProductAvailable
           ? CartButton(
-              price: 140,
+              price: 25,
               press: () {
                 customModalBottomSheet(
                   context,
@@ -57,14 +57,15 @@ class ProductDetailsScreen extends StatelessWidget {
               ],
             ),
             const ProductImages(
-              images: [productDemoImg1, productDemoImg2, productDemoImg3],
+              images: [productDemoImg1],
             ),
             ProductInfo(
-              brand: "LIPSY LONDON",
-              title: "Sin mangas con volantes",
+              brand: "PUMA",
+              title: "Camiseta Puma beishe",
               isAvailable: isProductAvailable,
               description:
-                  "Una gorra gris fresca en pana suave. Mírame.' Al comprar productos de algodón de Lindex, estás apoyando una producción más responsable...",
+                  "Camiseta de algodón con estampado de logo en el pecho y corte clásico. Ideal para un look casual.",
+              price: 20,
               rating: 4.4,
               numOfReviews: 126,
             ),
@@ -72,25 +73,14 @@ class ProductDetailsScreen extends StatelessWidget {
               svgSrc: "assets/icons/Product.svg",
               title: "Detalles del Producto",
               press: () {
-                customModalBottomSheet(
-                  context,
-                  height: MediaQuery.of(context).size.height * 0.92,
-                  child: const BuyFullKit(
-                      images: ["assets/screens/Product detail.png"]),
-                );
+                Navigator.pushNamed(context, '/product-details-info'); // Enlace ajustado
               },
             ),
             ProductListTile(
               svgSrc: "assets/icons/Delivery.svg",
               title: "Información de Envío",
               press: () {
-                customModalBottomSheet(
-                  context,
-                  height: MediaQuery.of(context).size.height * 0.92,
-                  child: const BuyFullKit(
-                    images: ["assets/screens/Shipping information.png"],
-                  ),
-                );
+                Navigator.pushNamed(context, '/product-shipping-info'); // Enlace ajustado
               },
             ),
             ProductListTile(
@@ -98,11 +88,7 @@ class ProductDetailsScreen extends StatelessWidget {
               title: "Devoluciones",
               isShowBottomBorder: true,
               press: () {
-                customModalBottomSheet(
-                  context,
-                  height: MediaQuery.of(context).size.height * 0.92,
-                  child: const ProductReturnsScreen(),
-                );
+                Navigator.pushNamed(context, '/product-returns-info'); // Enlace ajustado
               },
             ),
             const SliverToBoxAdapter(
@@ -148,7 +134,7 @@ class ProductDetailsScreen extends StatelessWidget {
                         right: index == 4 ? defaultPadding : 0),
                     child: ProductCard(
                       image: productDemoImg2,
-                      title: "Vestido sin mangas con volantes",
+                      title: "Camiseta de algodón",
                       brandName: "LIPSY LONDON",
                       price: 24.65,
                       priceAfetDiscount: index.isEven ? 20.99 : null,

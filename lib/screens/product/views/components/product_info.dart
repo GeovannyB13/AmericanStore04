@@ -12,7 +12,7 @@ class ProductInfo extends StatelessWidget {
     required this.description,
     required this.rating,
     required this.numOfReviews,
-    required this.isAvailable,
+    required this.isAvailable, required int price,
   });
 
   final String title, brand, description;
@@ -54,7 +54,7 @@ class ProductInfo extends StatelessWidget {
             ),
             const SizedBox(height: defaultPadding),
             Text(
-              "Product info",
+              "Información del producto",
               style: Theme.of(context)
                   .textTheme
                   .titleMedium!

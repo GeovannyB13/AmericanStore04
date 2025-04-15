@@ -47,7 +47,7 @@ class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
               children: [
                 const BackButton(),
                 Text(
-                  "Sin mangas con volantes",
+                  "Camisa PUMA beish",
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 IconButton(
@@ -78,8 +78,8 @@ class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
                       children: [
                         const Expanded(
                           child: UnitPrice(
-                            price: 145,
-                            priceAfterDiscount: 134.7,
+                            price: 20,
+                            priceAfterDiscount: 20,
                           ),
                         ),
                         ProductQuantity(

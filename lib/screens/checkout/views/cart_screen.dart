@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart'; // Para copiar al portapapeles
 import 'package:shop/models/product_model.dart';
 
 class CartScreen extends StatelessWidget {
@@ -11,7 +12,7 @@ class CartScreen extends StatelessWidget {
         title: const Text("Carrito de Compras"),
       ),
       body: ListView.builder(
-        itemCount: demoPopularProducts.length,
+        itemCount: 2, // Limitar a dos productos
         itemBuilder: (context, index) {
           final product = demoPopularProducts[index];
           return ListTile(
@@ -31,6 +32,36 @@ class CartScreen extends StatelessWidget {
                 : null,
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text("Pago con PayPal"),
+              content: const Text(
+                  "Usa el siguiente enlace para realizar el pago con PayPal:"),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    const paypalLink =
+                        "https://www.paypal.com/paypalme/yourbusiness";
+                    Clipboard.setData(const ClipboardData(text: paypalLink));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Enlace copiado al portapapeles")),
+                    );
+                  },
+                  child: const Text("Copiar enlace"),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text("Cerrar"),
+                ),
+              ],
+            ),
+          );
+        },
+        child: const Icon(Icons.payment),
       ),
     );
   }

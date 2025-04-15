@@ -53,12 +53,14 @@ class WalletScreen extends StatelessWidget {
                           price: 540,
                           priceAfetDiscount: 420,
                           dicountpercent: 20,
+                          category: "Zapatos", // Añadido
                         ),
                         ProductModel(
                           image: productDemoImg4,
                           title: "Mountain Beta Warehouse",
                           brandName: "Lipsy london",
                           price: 800,
+                          category: "Vitaminas", // Añadido
                         ),
                       ],
                     ),
