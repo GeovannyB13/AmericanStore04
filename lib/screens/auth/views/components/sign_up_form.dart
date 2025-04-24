@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../constants.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({
     super.key,
     required this.formKey,
+    required this.usernameController,
+    required this.emailController,
+    required this.passwordController,
   });
 
   final GlobalKey<FormState> formKey;
+  final TextEditingController usernameController;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
 
   @override
   Widget build(BuildContext context) {
@@ -18,60 +22,43 @@ class SignUpForm extends StatelessWidget {
       child: Column(
         children: [
           TextFormField(
-            onSaved: (email) {
-              // Correo electrónico
+            controller: usernameController,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Por favor, ingresa un nombre de usuario";
+              }
+              if (value.length < 3) {
+                return "El nombre de usuario debe tener al menos 3 caracteres";
+              }
+              return null;
             },
-            validator: emaildValidator.call,
-            textInputAction: TextInputAction.next,
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
-              hintText: "Correo electrónico",
-              prefixIcon: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
-                child: SvgPicture.asset(
-                  "assets/icons/Message.svg",
-                  height: 24,
-                  width: 24,
-                  colorFilter: ColorFilter.mode(
-                    Theme.of(context)
-                        .textTheme
-                        .bodyLarge!
-                        .color!
-                        .withOpacity(0.3),
-                    BlendMode.srcIn,
-                  ),
-                ),
-              ),
-            ),
+            decoration: const InputDecoration(hintText: "Nombre de usuario"),
           ),
-          const SizedBox(height: defaultPadding),
+          const SizedBox(height: 16),
           TextFormField(
-            onSaved: (pass) {
-              // Contraseña
+            controller: emailController,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Por favor, ingresa tu correo electrónico";
+              }
+              return null;
             },
-            validator: passwordValidator.call,
+            decoration: const InputDecoration(hintText: "Correo electrónico"),
+          ),
+          const SizedBox(height: 16),
+          TextFormField(
+            controller: passwordController,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Por favor, ingresa tu contraseña";
+              }
+              if (value.length < 6) {
+                return "La contraseña debe tener al menos 6 caracteres";
+              }
+              return null;
+            },
             obscureText: true,
-            decoration: InputDecoration(
-              hintText: "Contraseña",
-              prefixIcon: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: defaultPadding * 0.75),
-                child: SvgPicture.asset(
-                  "assets/icons/Lock.svg",
-                  height: 24,
-                  width: 24,
-                  colorFilter: ColorFilter.mode(
-                    Theme.of(context)
-                        .textTheme
-                        .bodyLarge!
-                        .color!
-                        .withOpacity(0.3),
-                    BlendMode.srcIn,
-                  ),
-                ),
-              ),
-            ),
+            decoration: const InputDecoration(hintText: "Contraseña"),
           ),
         ],
       ),

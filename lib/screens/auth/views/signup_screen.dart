@@ -14,6 +14,19 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  String? usernameValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Por favor, ingresa un nombre de usuario";
+    }
+    if (value.length < 3) {
+      return "El nombre de usuario debe tener al menos 3 caracteres";
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +54,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     "Por favor, ingresa tus datos válidos para crear una cuenta.",
                   ),
                   const SizedBox(height: defaultPadding),
-                  SignUpForm(formKey: _formKey),
+                  SignUpForm(
+                    formKey: _formKey,
+                    usernameController: _usernameController,
+                    emailController: _emailController,
+                    passwordController: _passwordController,
+                  ),
                   const SizedBox(height: defaultPadding),
                   Row(
                     children: [
@@ -78,10 +96,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(height: defaultPadding * 2),
                   ElevatedButton(
                     onPressed: () {
-                      // Hay 2 pantallas más mientras el usuario completa su perfil
-                      // después de registrarse, está disponible en la versión pro consíguelo ahora
-                      // 🔗 https://theflutterway.gumroad.com/l/fluttershop
-                      Navigator.pushNamed(context, entryPointScreenRoute);
+                      if (_formKey.currentState!.validate()) {
+                        // Lógica de registro
+                        Navigator.pushNamed(context, entryPointScreenRoute);
+                      }
                     },
                     child: const Text("Continuar"),
                   ),

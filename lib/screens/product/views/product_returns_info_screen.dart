@@ -9,11 +9,11 @@ class ProductReturnsInfoScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Información de Devoluciones"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Text(
               "Política de Devoluciones",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

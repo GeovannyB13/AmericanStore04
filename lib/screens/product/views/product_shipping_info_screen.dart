@@ -9,11 +9,11 @@ class ProductShippingInfoScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Información de Envío"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Text(
               "Información de Envío",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
