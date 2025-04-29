@@ -1,8 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import '../models/product_model.dart';
 
 class AuthService {
-  final String baseUrl = "https://americanstore04.shop/wp-json/wp/v2";
+  final String baseUrl = "https://americanstore04.shop/wp-json/wc/v3";
+  final String consumerKey = "ck_053220eb554be420d4cb699881c0e295b2df9d9f"; // Reemplaza con tu Consumer Key
+  final String consumerSecret = "cs_dc169b833552e39026ba0709da7f30ed631ca693"; // Reemplaza con tu Consumer Secret
 
   // Método para iniciar sesión
   Future<Map<String, dynamic>> login(String username, String password) async {
@@ -75,6 +78,46 @@ class AuthService {
         "success": false,
         "message": "Error de conexión: $e",
       };
+    }
+  }
+
+  // Método para obtener productos
+  Future<List<ProductModel>> fetchProducts() async {
+    final url = Uri.parse(
+      "$baseUrl/products?consumer_key=$consumerKey&consumer_secret=$consumerSecret",
+    );
+
+    try {
+      final response = await http.get(url);
+
+      if (response.statusCode == 200) {
+        final List<dynamic> data = jsonDecode(response.body);
+        return data.map((product) {
+          return ProductModel(
+            image: product["images"].isNotEmpty ? product["images"][0]["src"] : "",
+            title: product["name"],
+            brandName: product["brands"] ?? "Sin marca", // Si tienes un plugin de marcas
+            price: double.tryParse(product["price"]) ?? 0.0,
+            category: product["categories"].isNotEmpty
+                ? product["categories"][0]["name"]
+                : "Sin categoría",
+            priceAfetDiscount: product["sale_price"] != null
+                ? double.tryParse(product["sale_price"])
+                : null,
+            dicountpercent: product["regular_price"] != null && product["sale_price"] != null
+                ? ((double.tryParse(product["regular_price"])! -
+                        double.tryParse(product["sale_price"])!) /
+                    double.tryParse(product["regular_price"])! *
+                    100)
+                    .round()
+                : null,
+          );
+        }).toList();
+      } else {
+        throw Exception("Error al obtener productos: ${response.body}");
+      }
+    } catch (e) {
+      throw Exception("Error de conexión: $e");
     }
   }
 }

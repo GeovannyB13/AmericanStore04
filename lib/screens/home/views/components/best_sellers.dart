@@ -58,3 +58,5 @@ class BestSellers extends StatelessWidget {
     );
   }
 }
+
+// Remove the JavaScript code as it does not belong in a Dart file.
