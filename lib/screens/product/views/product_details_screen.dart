@@ -13,33 +13,27 @@ import 'components/product_info.dart';
 import 'components/product_list_tile.dart';
 import '../../../components/review_card.dart';
 import 'product_buy_now_screen.dart';
+import 'package:shop/models/product_model.dart'; // Asegúrate de importar el modelo
 
 class ProductDetailsScreen extends StatelessWidget {
-  const ProductDetailsScreen({super.key, this.isProductAvailable = true});
-
-  final bool isProductAvailable;
+  final ProductModel product;
+  const ProductDetailsScreen({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: isProductAvailable
-          ? CartButton(
-              price: 25,
-              press: () {
-                customModalBottomSheet(
-                  context,
-                  height: MediaQuery.of(context).size.height * 0.92,
-                  child: const ProductBuyNowScreen(),
-                );
-              },
-            )
-          :
+    // Usa widget.product en vez de ModalRoute.of(context)!.settings.arguments
 
-          /// Si el producto no está disponible, muestra [NotifyMeCard]
-          NotifyMeCard(
-              isNotify: false,
-              onChanged: (value) {},
-            ),
+    return Scaffold(
+      bottomNavigationBar: CartButton(
+        price: product.price, // <-- Usa double directamente
+        press: () {
+          customModalBottomSheet(
+            context,
+            height: MediaQuery.of(context).size.height * 0.92,
+            child: const ProductBuyNowScreen(),
+          );
+        },
+      ),
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
@@ -54,18 +48,17 @@ class ProductDetailsScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const ProductImages(
-              images: [productDemoImg1],
+            ProductImages(
+              images: [product.image],
             ),
             ProductInfo(
-              brand: "PUMA",
-              title: "Camiseta Puma beishe",
-              isAvailable: isProductAvailable,
-              description:
-                  "Camiseta de algodón con estampado de logo en el pecho y corte clásico. Ideal para un look casual.",
-              price: 20,
-              rating: 4.4,
-              numOfReviews: 126,
+              brand: product.brandName,
+              title: product.title,
+              isAvailable: true,
+              description: "", // Si tienes descripción en tu modelo, úsala aquí
+              price: product.price.toInt(),
+              rating: 0, // Si tienes rating, úsalo aquí
+              numOfReviews: 0, // Si tienes reviews, úsalo aquí
             ),
             ProductListTile(
               svgSrc: "assets/icons/Product.svg",

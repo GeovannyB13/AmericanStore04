@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop/components/product/product_card.dart';
 import 'package:shop/models/product_model.dart';
+import 'package:shop/services/product_service.dart';
 
 import '../../../../constants.dart';
 import '../../../../route/route_constants.dart';
@@ -23,40 +24,47 @@ class BestSellers extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall,
           ),
         ),
-        // Mientras se carga, usa 👇
-        // const ProductsSkelton(),
         SizedBox(
           height: 220,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            // Encuentra demoBestSellersProducts en models/ProductModel.dart
-            itemCount: demoBestSellersProducts.length,
-            itemBuilder: (context, index) => Padding(
-              padding: EdgeInsets.only(
-                left: defaultPadding,
-                right: index == demoBestSellersProducts.length - 1
-                    ? defaultPadding
-                    : 0,
-              ),
-              child: ProductCard(
-                image: demoBestSellersProducts[index].image,
-                brandName: demoBestSellersProducts[index].brandName,
-                title: demoBestSellersProducts[index].title,
-                price: demoBestSellersProducts[index].price,
-                priceAfetDiscount:
-                    demoBestSellersProducts[index].priceAfetDiscount,
-                dicountpercent: demoBestSellersProducts[index].dicountpercent,
-                press: () {
-                  Navigator.pushNamed(context, productDetailsScreenRoute,
-                      arguments: index.isEven);
-                },
-              ),
-            ),
+          child: FutureBuilder<List<ProductModel>>(
+            future: ProductService.fetchProducts(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return const Center(child: Text('No hay productos'));
+              }
+              final products = snapshot.data!;
+              // Si quieres filtrar los más vendidos, puedes hacerlo aquí.
+              // Por ejemplo, usando rating_count o total_sales si tu modelo lo soporta.
+              return ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: products.length,
+                itemBuilder: (context, index) => Padding(
+                  padding: EdgeInsets.only(
+                    left: defaultPadding,
+                    right: index == products.length - 1 ? defaultPadding : 0,
+                  ),
+                  child: ProductCard(
+                    image: products[index].image,
+                    brandName: products[index].brandName,
+                    title: products[index].title,
+                    price: products[index].price,
+                    priceAfetDiscount: products[index].priceAfetDiscount,
+                    dicountpercent: products[index].dicountpercent,
+                    press: () {
+                      Navigator.pushNamed(context, productDetailsScreenRoute,
+                          arguments: index.isEven);
+                    },
+                  ),
+                ),
+              );
+            },
           ),
         )
       ],
     );
   }
 }
-
-// Remove the JavaScript code as it does not belong in a Dart file.

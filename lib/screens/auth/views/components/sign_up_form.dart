@@ -27,9 +27,6 @@ class SignUpForm extends StatelessWidget {
               if (value == null || value.isEmpty) {
                 return "Por favor, ingresa un nombre de usuario";
               }
-              if (value.length < 3) {
-                return "El nombre de usuario debe tener al menos 3 caracteres";
-              }
               return null;
             },
             decoration: const InputDecoration(hintText: "Nombre de usuario"),
@@ -51,9 +48,6 @@ class SignUpForm extends StatelessWidget {
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return "Por favor, ingresa tu contraseña";
-              }
-              if (value.length < 6) {
-                return "La contraseña debe tener al menos 6 caracteres";
               }
               return null;
             },

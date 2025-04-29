@@ -23,7 +23,7 @@ class LogInForm extends StatelessWidget {
         children: [
           TextFormField(
             controller: emailController,
-            validator: emaildValidator.call,
+            // Sin restricción de validador
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
@@ -49,7 +49,7 @@ class LogInForm extends StatelessWidget {
           const SizedBox(height: defaultPadding),
           TextFormField(
             controller: passwordController,
-            validator: passwordValidator.call,
+            // Sin restricción de validador
             obscureText: true,
             decoration: InputDecoration(
               hintText: "Contraseña",

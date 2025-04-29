@@ -2,7 +2,7 @@
 import 'package:shop/constants.dart';
 
 class ProductModel {
-  final String image, brandName, title, category; // Añadida la propiedad 'category'
+  final String image, brandName, title, category;
   final double price;
   final double? priceAfetDiscount;
   final int? dicountpercent;
@@ -12,10 +12,52 @@ class ProductModel {
     required this.brandName,
     required this.title,
     required this.price,
-    required this.category, // Propiedad requerida
+    required this.category,
     this.priceAfetDiscount,
     this.dicountpercent,
   });
+
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    // Obtener imagen principal
+    String imageUrl = "";
+    if (json["images"] != null && json["images"].isNotEmpty) {
+      imageUrl = json["images"][0]["src"];
+    }
+
+    // Obtener marca (brand)
+    String brand = "";
+    if (json["brands"] != null && json["brands"].isNotEmpty) {
+      brand = json["brands"][0]["name"];
+    }
+
+    // Obtener categoría
+    String category = "";
+    if (json["categories"] != null && json["categories"].isNotEmpty) {
+      category = json["categories"][0]["name"];
+    }
+
+    // Precios
+    double price = double.tryParse(json["price"] ?? "0") ?? 0;
+    double? salePrice = (json["sale_price"] != null && json["sale_price"] != "")
+        ? double.tryParse(json["sale_price"])
+        : null;
+
+    // Descuento
+    int? discountPercent;
+    if (salePrice != null && salePrice < price && price > 0) {
+      discountPercent = (((price - salePrice) / price) * 100).round();
+    }
+
+    return ProductModel(
+      image: imageUrl,
+      brandName: brand,
+      title: json["name"] ?? "",
+      price: price,
+      priceAfetDiscount: salePrice,
+      dicountpercent: discountPercent,
+      category: category,
+    );
+  }
 }
 
 List<ProductModel> demoPopularProducts = [

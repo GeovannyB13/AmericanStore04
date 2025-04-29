@@ -18,6 +18,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  bool _agreedToTerms = false; // Nuevo estado para el checkbox
+
   String? usernameValidator(String? value) {
     if (value == null || value.isEmpty) {
       return "Por favor, ingresa un nombre de usuario";
@@ -64,8 +66,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Row(
                     children: [
                       Checkbox(
-                        onChanged: (value) {},
-                        value: false,
+                        value: _agreedToTerms,
+                        onChanged: (value) {
+                          setState(() {
+                            _agreedToTerms = value ?? false;
+                          });
+                        },
                       ),
                       Expanded(
                         child: Text.rich(
@@ -95,12 +101,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   const SizedBox(height: defaultPadding * 2),
                   ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        // Lógica de registro
-                        Navigator.pushNamed(context, entryPointScreenRoute);
-                      }
-                    },
+                    onPressed: _agreedToTerms
+                        ? () {
+                            if (_formKey.currentState!.validate()) {
+                              // Lógica de registro
+                              Navigator.pushNamed(context, entryPointScreenRoute);
+                            }
+                          }
+                        : null, // Deshabilita el botón si no está marcado
                     child: const Text("Continuar"),
                   ),
                   Row(
