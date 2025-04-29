@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shop/entry_point.dart';
 import 'package:shop/models/product_model.dart'; // Asegúrate de importar el modelo
+import 'package:shop/screens/discover/views/category_products_screen.dart';
 import 'package:shop/screens/profile/views/profile_details_screen.dart';
+import 'package:shop/screens/product/views/product_shipping_info_screen.dart';
 
 import 'screen_export.dart';
 
@@ -304,6 +306,15 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case profileDetailsScreenRoute:
       return MaterialPageRoute(
         builder: (context) => const ProfileDetailsScreen(),
+      );
+    case '/product-shipping-info':
+      return MaterialPageRoute(
+        builder: (context) => const ProductShippingInfoScreen(),
+      );
+    case '/category-products':
+      final categoryName = settings.arguments as String;
+      return MaterialPageRoute(
+        builder: (context) => CategoryProductsScreen(categoryName: categoryName),
       );
     default:
       return MaterialPageRoute(

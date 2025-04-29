@@ -32,10 +32,19 @@ class DiscoverScreen extends StatelessWidget {
             Expanded(
               child: ListView.builder(
                 itemCount: demoCategories.length,
-                itemBuilder: (context, index) => ExpansionCategory(
-                  svgSrc: demoCategories[index].svgSrc!,
-                  title: demoCategories[index].title,
-                  subCategory: demoCategories[index].subCategories!,
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/category-products',
+                      arguments: demoCategories[index].title,
+                    );
+                  },
+                  child: ExpansionCategory(
+                    svgSrc: demoCategories[index].svgSrc!,
+                    title: demoCategories[index].title,
+                    subCategory: demoCategories[index].subCategories!,
+                  ),
                 ),
               ),
             ),

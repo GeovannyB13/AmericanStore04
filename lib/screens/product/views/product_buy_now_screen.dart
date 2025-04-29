@@ -3,10 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop/components/cart_button.dart';
 import 'package:shop/components/custom_modal_bottom_sheet.dart';
 import 'package:shop/components/network_image_with_loader.dart';
+import 'package:shop/models/product_model.dart';
 import 'package:shop/screens/product/views/added_to_cart_message_screen.dart';
 import 'package:shop/screens/product/views/components/product_list_tile.dart';
 import 'package:shop/screens/product/views/location_permission_store_availability_screen.dart';
 import 'package:shop/screens/product/views/size_guide_screen.dart';
+import 'package:shop/services/cart_global.dart';
 
 import '../../../constants.dart';
 import 'components/product_quantity.dart';
@@ -15,7 +17,8 @@ import 'components/selected_size.dart';
 import 'components/unit_price.dart';
 
 class ProductBuyNowScreen extends StatefulWidget {
-  const ProductBuyNowScreen({super.key});
+  final ProductModel product;
+  const ProductBuyNowScreen({super.key, required this.product});
 
   @override
   _ProductBuyNowScreenState createState() => _ProductBuyNowScreenState();
@@ -24,17 +27,16 @@ class ProductBuyNowScreen extends StatefulWidget {
 class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
   @override
   Widget build(BuildContext context) {
+    final product = widget.product;
     return Scaffold(
       bottomNavigationBar: CartButton(
-        price: 269.4,
+        price: product.price,
         title: "Añadir al carrito",
         subTitle: "Precio total",
         press: () {
-          customModalBottomSheet(
-            context,
-            isDismissible: false,
-            child: const AddedToCartMessageScreen(),
-          );
+          cartItems.add(product); // Añade el producto al carrito global
+          Navigator.pop(context); // Cierra el modal
+          Navigator.pushNamed(context, '/cart'); // Redirige al carrito
         },
       ),
       body: Column(
@@ -47,7 +49,7 @@ class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
               children: [
                 const BackButton(),
                 Text(
-                  "Camisa PUMA beish",
+                  product.title, // Título dinámico
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 IconButton(
@@ -61,12 +63,12 @@ class _ProductBuyNowScreenState extends State<ProductBuyNowScreen> {
           Expanded(
             child: CustomScrollView(
               slivers: [
-                const SliverToBoxAdapter(
+                SliverToBoxAdapter(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+                    padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                     child: AspectRatio(
                       aspectRatio: 1.05,
-                      child: NetworkImageWithLoader(productDemoImg1),
+                      child: NetworkImageWithLoader(product.image), // Imagen dinámica
                     ),
                   ),
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Para copiar al portapapeles
 import 'package:shop/models/product_model.dart';
+import 'package:shop/services/cart_global.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -11,28 +12,30 @@ class CartScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Carrito de Compras"),
       ),
-      body: ListView.builder(
-        itemCount: 2, // Limitar a dos productos
-        itemBuilder: (context, index) {
-          final product = demoPopularProducts[index];
-          return ListTile(
-            leading: Image.network(
-              product.image,
-              width: 50,
-              height: 50,
-              fit: BoxFit.cover,
+      body: cartItems.isEmpty
+          ? const Center(child: Text("El carrito está vacío"))
+          : ListView.builder(
+              itemCount: cartItems.length,
+              itemBuilder: (context, index) {
+                final product = cartItems[index];
+                return ListTile(
+                  leading: Image.network(
+                    product.image,
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.cover,
+                  ),
+                  title: Text(product.title),
+                  subtitle: Text("Precio: \$${product.price.toStringAsFixed(2)}"),
+                  trailing: product.priceAfetDiscount != null
+                      ? Text(
+                          "Descuento: \$${product.priceAfetDiscount!.toStringAsFixed(2)}",
+                          style: const TextStyle(color: Colors.green),
+                        )
+                      : null,
+                );
+              },
             ),
-            title: Text(product.title),
-            subtitle: Text("Precio: \$${product.price.toStringAsFixed(2)}"),
-            trailing: product.priceAfetDiscount != null
-                ? Text(
-                    "Descuento: \$${product.priceAfetDiscount!.toStringAsFixed(2)}",
-                    style: const TextStyle(color: Colors.green),
-                  )
-                : null,
-          );
-        },
-      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialog(

@@ -1,36 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:shop/models/product_model.dart';
 
 class ProductDetailsInfoScreen extends StatelessWidget {
   const ProductDetailsInfoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final product = ModalRoute.of(context)!.settings.arguments as ProductModel;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Detalles del Producto"),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Detalles del Producto",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              product.title,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
-              "Este producto está hecho con materiales de alta calidad y diseñado para ofrecer comodidad y estilo. Es perfecto para cualquier ocasión y combina bien con una variedad de accesorios.",
+              product.brandName,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 10),
             Text(
-              "Características:",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              product.category,
+              style: const TextStyle(fontSize: 14, color: Colors.grey),
             ),
-            SizedBox(height: 10),
-            Text("- Material: Algodón 100%"),
-            Text("- Color: Gris"),
-            Text("- Tallas disponibles: S, M, L, XL"),
+            const SizedBox(height: 20),
+            Text(
+              "Descripción:",
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              "Este producto no tiene descripción disponible. Para más información, contáctanos o revisa las características en la tienda.",
+            ),
+            // Puedes agregar más campos dinámicos aquí si tu modelo los tiene
           ],
         ),
       ),

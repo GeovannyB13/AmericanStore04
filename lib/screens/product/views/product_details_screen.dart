@@ -14,6 +14,7 @@ import 'components/product_list_tile.dart';
 import '../../../components/review_card.dart';
 import 'product_buy_now_screen.dart';
 import 'package:shop/models/product_model.dart'; // Asegúrate de importar el modelo
+import 'package:shop/services/product_service.dart'; // Importa el servicio de productos
 
 class ProductDetailsScreen extends StatelessWidget {
   final ProductModel product;
@@ -25,12 +26,12 @@ class ProductDetailsScreen extends StatelessWidget {
 
     return Scaffold(
       bottomNavigationBar: CartButton(
-        price: product.price, // <-- Usa double directamente
+        price: product.price,
         press: () {
           customModalBottomSheet(
             context,
             height: MediaQuery.of(context).size.height * 0.92,
-            child: const ProductBuyNowScreen(),
+            child: ProductBuyNowScreen(product: product), // <-- pasa el producto
           );
         },
       ),
@@ -64,7 +65,11 @@ class ProductDetailsScreen extends StatelessWidget {
               svgSrc: "assets/icons/Product.svg",
               title: "Detalles del Producto",
               press: () {
-                Navigator.pushNamed(context, '/product-details-info'); // Enlace ajustado
+                Navigator.pushNamed(
+                  context,
+                  '/product-details-info',
+                  arguments: product, // <-- pasa el producto
+                );
               },
             ),
             ProductListTile(
@@ -116,23 +121,47 @@ class ProductDetailsScreen extends StatelessWidget {
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 220,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 5,
-                  itemBuilder: (context, index) => Padding(
-                    padding: EdgeInsets.only(
-                        left: defaultPadding,
-                        right: index == 4 ? defaultPadding : 0),
-                    child: ProductCard(
-                      image: productDemoImg2,
-                      title: "Camiseta de algodón",
-                      brandName: "LIPSY LONDON",
-                      price: 24.65,
-                      priceAfetDiscount: index.isEven ? 20.99 : null,
-                      dicountpercent: index.isEven ? 25 : null,
-                      press: () {},
-                    ),
-                  ),
+                child: FutureBuilder<List<ProductModel>>(
+                  future: ProductService.fetchProducts(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else if (snapshot.hasError) {
+                      return Center(child: Text('Error: ${snapshot.error}'));
+                    } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                      return const Center(child: Text('No hay productos'));
+                    }
+                    // Filtra productos para no mostrar el mismo producto actual
+                    final relatedProducts = snapshot.data!
+                        .where((p) => p.title != product.title)
+                        .take(10)
+                        .toList();
+                    return ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: relatedProducts.length,
+                      itemBuilder: (context, index) => Padding(
+                        padding: EdgeInsets.only(
+                          left: defaultPadding,
+                          right: index == relatedProducts.length - 1 ? defaultPadding : 0,
+                        ),
+                        child: ProductCard(
+                          image: relatedProducts[index].image,
+                          title: relatedProducts[index].title,
+                          brandName: relatedProducts[index].brandName,
+                          price: relatedProducts[index].price,
+                          priceAfetDiscount: relatedProducts[index].priceAfetDiscount,
+                          dicountpercent: relatedProducts[index].dicountpercent,
+                          press: () {
+                            Navigator.pushNamed(
+                              context,
+                              productDetailsScreenRoute,
+                              arguments: relatedProducts[index],
+                            );
+                          },
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
