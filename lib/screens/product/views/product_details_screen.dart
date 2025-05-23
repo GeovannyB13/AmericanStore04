@@ -7,7 +7,6 @@ import 'package:shop/constants.dart';
 
 import 'package:shop/route/screen_export.dart';
 
-import 'components/notify_me_card.dart';
 import 'components/product_images.dart';
 import 'components/product_info.dart';
 import 'components/product_list_tile.dart';

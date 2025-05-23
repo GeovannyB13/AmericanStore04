@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Para copiar al portapapeles
-import 'package:shop/models/product_model.dart';
 import 'package:shop/services/cart_global.dart';
 
 class CartScreen extends StatelessWidget {

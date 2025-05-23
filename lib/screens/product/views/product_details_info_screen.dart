@@ -32,12 +32,12 @@ class ProductDetailsInfoScreen extends StatelessWidget {
               style: const TextStyle(fontSize: 14, color: Colors.grey),
             ),
             const SizedBox(height: 20),
-            Text(
+            const Text(
               "Descripción:",
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
-            Text(
+            const Text(
               "Este producto no tiene descripción disponible. Para más información, contáctanos o revisa las características en la tienda.",
             ),
             // Puedes agregar más campos dinámicos aquí si tu modelo los tiene

@@ -4,8 +4,8 @@ import '../models/product_model.dart';
 
 class AuthService {
   final String baseUrl = "https://americanstore04.shop/wp-json/wc/v3";
-  final String consumerKey = "ck_053220eb554be420d4cb699881c0e295b2df9d9f"; // Reemplaza con tu Consumer Key
-  final String consumerSecret = "cs_dc169b833552e39026ba0709da7f30ed631ca693"; // Reemplaza con tu Consumer Secret
+  final String consumerKey = "ck_0f236b8f457fa9aaa3fc2a941f6c947346d66699"; // Reemplaza con tu Consumer Key
+  final String consumerSecret = "cs_f84a1d3b5ba65c40b9a301c426bcd6bc443fa81e"; // Reemplaza con tu Consumer Secret
 
   // Método para iniciar sesión
   Future<Map<String, dynamic>> login(String username, String password) async {
